@@ -1,0 +1,49 @@
+<%- include("partials/header.ejs") %>
+
+    <h1>
+        <%= randomCocktailName %>
+    </h1>
+
+    <section class="grid-container">
+        <article class="left-side">
+            <img src="<%= randomCocktailImage %>" alt="cocktail-preview" class="cocktail-preview">
+            <% if(randomAlcoholic==="Alcoholic" ){ %>
+                <em>This is an alcoholic cocktail</em>
+                <% } else{ %>
+                    <em>This is a non alcoholic cocktail</em>
+                    <% } %>
+        </article>
+
+        <article class="right-side">
+            <h2>Ingredients:</h2>
+            <ul>
+                <%randomIngredientsMixed.forEach((ingredient)=> { %>
+                    <li>
+                        <%=ingredient %>
+                    </li>
+                    <%}) %>
+            </ul>
+
+            <h3>Instructions:</h3>
+            <p class="instructions-paragraph">
+            <ul>
+                <li>
+                    <%= randomInstructions %>
+                </li>
+            </ul>
+            </p>
+
+            <h4>For the best experience drink from the
+                <%= randomGlass %>
+            </h4>
+        </article>
+
+    </section>
+
+    <form method="GET">
+        <button>Try another one 🍸</button>
+    </form>
+
+
+
+    <%- include("partials/footer.ejs") %>
